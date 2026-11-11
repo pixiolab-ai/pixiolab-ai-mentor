@@ -1,0 +1,2 @@
+numpy~=2.4          # 9.04 top-k; >=2.4,<3 runs on Python 3.11 and later
+anthropic~=2.8      # 9.08 fan-out

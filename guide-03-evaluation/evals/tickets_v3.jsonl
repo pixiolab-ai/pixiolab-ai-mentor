@@ -1,0 +1,10 @@
+{"id": "bill-001", "input": "I was charged twice for my March invoice. Please refund one of the charges.", "slice": {"intent": "billing"}, "expect": {"category": "billing", "key_facts": ["charged twice", "march"]}}
+{"id": "bill-002", "input": "Why did my plan price go up from $20 to $25 this month? Nobody told me.", "slice": {"intent": "billing"}, "expect": {"category": "billing", "key_facts": ["$25"]}}
+{"id": "bill-003", "input": "Please cancel my subscription and confirm I won't be billed again.", "slice": {"intent": "billing"}, "expect": {"category": "billing", "key_facts": ["cancel"]}}
+{"id": "acct-001", "input": "I can't log in. The password reset link in the email has expired.", "slice": {"intent": "account"}, "expect": {"category": "account", "key_facts": ["reset link", "expired"]}}
+{"id": "acct-002", "input": "How do I change the email address on my account? I left my old job.", "slice": {"intent": "account"}, "expect": {"category": "account", "key_facts": ["email address"]}}
+{"id": "acct-003", "input": "My account is locked after too many sign-in attempts. Can you unlock it?", "slice": {"intent": "account"}, "expect": {"category": "account", "key_facts": ["locked"]}}
+{"id": "tech-001", "input": "Your API has returned 500 errors for two hours and our checkout is down.", "slice": {"intent": "technical"}, "expect": {"category": "technical", "key_facts": ["500", "checkout"]}}
+{"id": "tech-002", "input": "The CSV export times out for any report over 10,000 rows.", "slice": {"intent": "technical"}, "expect": {"category": "technical", "key_facts": ["export", "10,000"]}}
+{"id": "tech-003", "input": "Webhooks stopped arriving after we rotated our signing secret yesterday.", "slice": {"intent": "technical"}, "expect": {"category": "technical", "key_facts": ["webhook", "signing secret"]}}
+{"id": "edge-001", "input": "After the double charge last week my account got suspended, and now I can't sign in to download the invoice.", "slice": {"intent": "billing"}, "expect": {"category": "billing", "key_facts": ["suspended", "invoice"]}}

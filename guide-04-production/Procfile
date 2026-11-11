@@ -1,0 +1,5 @@
+api:         uvicorn app.api:api --host 0.0.0.0 --port 8000
+worker-llm:  celery -A app.jobs.celery_app worker -Q llm -c 8 -n llm@%h
+worker-jobs: celery -A app.jobs.celery_app worker -Q celery -c 2 -n jobs@%h
+beat:        celery -A app.jobs.celery_app beat   # exactly one, always
+dashboard:   streamlit run dashboard.py

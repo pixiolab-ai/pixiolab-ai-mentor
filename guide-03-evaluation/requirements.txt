@@ -1,0 +1,1 @@
+anthropic~=2.8      # the judge and the example feature; everything else is stdlib

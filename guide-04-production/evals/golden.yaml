@@ -1,0 +1,17 @@
+# Behaviors to check, not exact text. Pull cases from real tickets.
+- id: double-charge
+  input: I was charged twice this month and nobody answers my emails.
+    Fix this today.
+  expect: {category: billing, urgency: high}
+  key_facts: [charged twice, no reply to emails]
+  critical: true            # must pass on every change
+
+- id: password-reset
+  input: How do I reset my password? The link in the email expired.
+  expect: {category: account, urgency: low}
+  key_facts: [reset link expired]
+
+- id: api-500s
+  input: Your API has returned 500 errors for 2 hours. Our checkout is down.
+  expect: {category: technical, urgency: high}
+  key_facts: [500 errors for 2 hours, checkout is down]

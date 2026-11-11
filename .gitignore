@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets: commit .env.example, never .env
+.env
+.env.*
+!.env.example
+
+# Files the code writes when you run it
+guide-02-agents/runs.db
+guide-03-evaluation/evals/results.json
+guide-04-production/evals/results.json
+guide-04-production/evals/results-fallback.json
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/

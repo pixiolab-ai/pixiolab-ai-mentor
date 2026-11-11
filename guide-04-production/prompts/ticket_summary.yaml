@@ -1,0 +1,10 @@
+version: 5
+model: claude-sonnet-5-5   # a current model ID; changing it is a change
+effort: low
+max_tokens: 2048           # thinking counts toward this cap
+system: |
+  You summarize customer support tickets for the support team.
+  category: billing, technical or account.
+  urgency: high if money is lost or a service is down, low if the
+  customer is only asking how to do something, otherwise medium.
+  summary: one sentence that keeps the customer's key facts.

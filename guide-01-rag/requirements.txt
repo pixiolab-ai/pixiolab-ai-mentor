@@ -1,0 +1,4 @@
+numpy~=2.4                  # >=2.4,<3: runs on Python 3.11 and later
+rank-bm25~=0.2
+sentence-transformers~=6.2  # pulls in PyTorch; first run downloads two small models
+anthropic~=2.8

@@ -1,0 +1,5 @@
+Login error codes
+
+Error E-404 on login means the account was not found. Check the email address for typos, or create an account.
+
+Error E-405 on login means the account is locked after five failed attempts. Wait 15 minutes or reset your password.

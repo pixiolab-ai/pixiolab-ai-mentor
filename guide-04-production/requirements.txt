@@ -1,0 +1,20 @@
+anthropic~=2.8
+openai~=3.49
+tenacity~=9.2
+prometheus-client~=0.26
+psycopg[binary]~=3.3
+pgvector~=0.5
+numpy~=2.4          # >=2.4,<3: NumPy 2.5 needs Python 3.12, 2.4 runs on 3.11
+sqlalchemy~=2.1
+pandas~=3.1
+streamlit~=1.67
+slack-sdk~=3.46
+pyyaml~=6.0
+pydantic~=2.14
+celery[redis]~=5.7
+redis~=8.1
+fastapi~=0.162
+uvicorn~=0.54
+httpx~=0.28
+pyjwt[crypto]~=2.15
+pytest~=9.2

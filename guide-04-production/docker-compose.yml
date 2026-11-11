@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17   # Postgres 17 with pgvector 0.8+
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app        # local development only
+      POSTGRES_DB: app
+    ports: ["5432:5432"]
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      # Feature 04 reads your product's signups table; this is a local stand-in.
+      - ./db/signups.sql:/docker-entrypoint-initdb.d/signups.sql:ro
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]

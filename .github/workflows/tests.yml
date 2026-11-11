@@ -1,0 +1,80 @@
+# Runs every folder's tests on every push and pull request. Model APIs are
+# mocked in the tests, so no API keys or other secrets are needed.
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  guides:
+    name: ${{ matrix.folder }} (Python ${{ matrix.python }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        folder:
+          - guide-01-rag
+          - guide-02-agents
+          - guide-03-evaluation
+          - guide-07-coding-round
+        python: ["3.11", "3.13"]
+    defaults:
+      run:
+        working-directory: ${{ matrix.folder }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: ${{ matrix.folder }}/requirements*.txt
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest
+
+  production:
+    # Guide 04 also runs its database tests, against Postgres with pgvector.
+    name: guide-04-production (Python ${{ matrix.python }}, Postgres + pgvector)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.13"]
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17
+        env:
+          POSTGRES_USER: app
+          POSTGRES_PASSWORD: app   # a throwaway CI database
+          POSTGRES_DB: app
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U app"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://app:app@localhost:5432/app
+    defaults:
+      run:
+        working-directory: guide-04-production
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: guide-04-production/requirements*.txt
+      - run: pip install -r requirements-dev.txt
+      # The tests create the schema (db/schema.sql) in the empty database.
+      - run: python -m pytest

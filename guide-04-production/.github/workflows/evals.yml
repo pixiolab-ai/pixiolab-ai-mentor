@@ -1,0 +1,35 @@
+name: evals
+on:
+  pull_request:          # no `paths:` filter here: see the note below
+concurrency:             # a new push cancels the old run (and its cost)
+  group: evals-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  evals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7      # pin the current major version
+        with:
+          fetch-depth: 0
+      - id: changes
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if git diff --quiet "$BASE" HEAD -- \
+              prompts app evals requirements.txt; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.changes.outputs.run == 'true'
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - if: steps.changes.outputs.run == 'true'
+        run: pip install -r requirements.txt
+      - if: steps.changes.outputs.run == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRACK_USAGE: "0"
+        run: python -m evals.run && pytest tests/test_regression.py -s

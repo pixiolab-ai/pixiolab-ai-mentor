@@ -1,0 +1,11 @@
+[
+  {"question": "error E-404 on login", "relevant": ["errors#0"], "category": "exact term"},
+  {"question": "What does error E-405 mean?", "relevant": ["errors#0"], "category": "exact term"},
+  {"question": "Which colors does the TrailRunner 3 come in?", "relevant": ["boots#0"], "category": "exact term"},
+  {"question": "How much does express shipping cost?", "relevant": ["shipping#0"], "category": "exact term"},
+  {"question": "how do I get my money back?", "relevant": ["returns#0"], "category": "paraphrase"},
+  {"question": "Can I return boots after 40 days?", "relevant": ["returns#0"], "category": "paraphrase"},
+  {"question": "My account is locked after too many wrong passwords", "relevant": ["errors#0"], "category": "paraphrase"},
+  {"question": "Can I put leather boots in the washing machine?", "relevant": ["boots#0"], "category": "paraphrase"},
+  {"question": "How fast can a package get to me?", "relevant": ["shipping#0"], "category": "paraphrase"}
+]
