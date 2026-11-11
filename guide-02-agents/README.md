@@ -25,7 +25,7 @@ The code skeletons from *Agentic Design Patterns* (Guide 02 of PixioLab AI Mento
 | Chapter 12 · Evaluating agents, in brief | `evals/trajectory.py` |
 | Chapter 13 · Deploying agents | `tools/refund.py` |
 
-The guide's taxonomy, after Anthropic's ["Building effective agents"](https://www.anthropic.com/engineering/building-effective-agents) (December 2024): **workflows** are paths your code fixes (prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer) and are the default choice; **agents** let the model choose its next step in a loop (the tool-use loop, planning, reflection, multi-agent). Routing here is a workflow; reflection is the agent-side version of evaluator-optimizer.
+The guide's taxonomy, after Anthropic's ["Building effective agents"](https://www.anthropic.com/research/building-effective-agents) (December 2024): **workflows** are paths your code fixes (prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer) and are the default choice; **agents** let the model choose its next step in a loop (the tool-use loop, planning, reflection, multi-agent). Routing here is a workflow; reflection is the agent-side version of evaluator-optimizer.
 
 ## Architecture
 
