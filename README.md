@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/pixiolab-ai/pixiolab-ai-mentor/actions/workflows/tests.yml/badge.svg)](https://github.com/pixiolab-ai/pixiolab-ai-mentor/actions/workflows/tests.yml)
 
-Runnable, tested code for the **PixioLab AI Mentor** series: nine guides by PixioLab for software engineers moving into AI engineering. The guides teach the ideas and print the important code; this repository holds that code in full, with tests, so you can run it, break it and watch how each system works.
+Runnable, tested code for the **PixioLab AI Mentor** series: ten guides by PixioLab for software engineers moving into AI engineering. The guides teach the ideas and print the important code; this repository holds that code in full, with tests, so you can run it, break it and watch how each system works.
 
 Every folder is a small, self-contained project with its own README. Each README explains which chapters it accompanies, how the system is put together, how one request flows through the code, why it is built that way, and how to run and test it.
 
@@ -19,6 +19,7 @@ Every folder is a small, self-contained project with its own README. Each README
 | 06 | System Design Interviews | Running the room, core building blocks, AI system design. |
 | 07 | AI Engineering Interview Q&A | An 80+ question bank with strong answers, follow-ups and level tags. |
 | 08 | When You Don't Know the Answer | A playbook for answering questions outside your experience. |
+| 09 | Get the Offer | From finished project to signed offer: targeting, resume, referrals, take-homes and negotiation. |
 
 The guides are PDFs distributed by PixioLab. They are not part of this repository.
 
@@ -32,7 +33,9 @@ The guides are PDFs distributed by PixioLab. They are not part of this repositor
 | 04 · Production AI Features | [`guide-04-production/`](guide-04-production/) | The full production app: retries and fallback, cost tracking, prompt regression tests, scheduled jobs, a request queue, permission-aware RAG; Docker Compose | 77 |
 | 07 · AI Engineering Interview Q&A | [`guide-07-coding-round/`](guide-07-coding-round/) | The eight coding-round solutions from Module 09 | 31 |
 
-Guides 00, 05, 06 and 08 have no folder. Guide 00 is the plan that sends you to the others. Guide 05's portfolio projects are yours to build: each folder's exercises point to the projects that grow out of it. Guides 06 and 08 are about interviews, not code.
+Guides 00, 05, 06, 08 and 09 have no folder. Guide 00 is the plan that sends you to the others. Guide 05's portfolio projects are yours to build: each folder's exercises point to the projects that grow out of it. Guides 06, 08 and 09 are about interviews and the job search, not code.
+
+**Building the 45-day capstone?** Don't start here: create your repo from the [sourcebook-starter](https://github.com/pixiolab-ai/sourcebook-starter) template. It has the capstone's layout and a test workflow with none of the work done. Come back here to check your build against a reference.
 
 ## Five-minute quickstart
 
